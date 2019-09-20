@@ -1,99 +1,18 @@
 import java.util.Scanner;
 
-public class Rosario_p1 {
+public class Decrypt {
 
 	public static void main(String[] args) {
 		
+		int answer;
+		int deCrypt;
 		int onesPlace;
 		int tensPlace;
 		int hundsPlace;
 		int thousPlace;
+		int newDig;
 		
-		System.out.println("Enter the four-digit code you wish to be encrypted:");
 		Scanner scnr = new Scanner(System.in);
-		
-		int fourDig = scnr.nextInt();
-		
-		//Checks if the entered number is 4 digits in length
-		while(fourDig < 1000) {
-			System.out.println("That number is not four digits long. Try again. \n");
-			fourDig = scnr.nextInt();
-		}
-
-		
-		
-//		testing retrieval
-		System.out.println("\nYou entered: " + fourDig + "\n");
-		
-		onesPlace = fourDig % 10;
-		
-//		testing places
-		System.out.println(fourDig + "  -> Ones place is -> " + onesPlace + "\n");		
-		fourDig = fourDig / 10;
-		
-		tensPlace = fourDig % 10;
-		
-//		test
-		System.out.println(fourDig + " -> Tens place is -> " + tensPlace + "\n");
-		
-		fourDig = fourDig / 10;
-		
-		hundsPlace = fourDig % 10;
-		
-//		test
-		System.out.println(fourDig + " -> Hundreds place is -> " + hundsPlace + "\n");
-		
-		fourDig = fourDig / 10;
-		
-		thousPlace = fourDig %10;
-		
-//		test
-		System.out.println(fourDig + " -> Thousands place is -> " + thousPlace + "\n");
-		
-		System.out.println("\n---------------------------------------");
-		System.out.println(" ...Let's begin the encryption...");
-		System.out.println("---------------------------------------\n");
-		
-		//adds 7
-		onesPlace = (onesPlace + 7);
-		tensPlace = (tensPlace + 7);
-		hundsPlace = (hundsPlace + 7);
-		thousPlace = (thousPlace + 7);
-		
-		
-		System.out.println("ADDS 7 =  " + thousPlace + "-" + hundsPlace + "-" + tensPlace + "-" + onesPlace + "\n");
-
-		//Gets the remainder		
-		onesPlace = onesPlace % 10;		//next -> swap with 3rd    (multiply by 100)
-		tensPlace = tensPlace % 10;		//swap -> with fourth (multiply by 1000)
-		hundsPlace = hundsPlace % 10;	//swap -> with 1rst   (stays the same)
-		thousPlace = thousPlace % 10;	//swap -> with 2nd    (multiply by 10) 
-		
-		System.out.println("Gets the REMAINDER after Division =  " + thousPlace + "-" + hundsPlace + "-" + tensPlace + "-" + onesPlace + "\n");
-
-		//swap the first digit with the third, and swap the second digit with the fourth.
-		System.out.println("SWAPS =  " + tensPlace + "-" + onesPlace + "-" + thousPlace + "-" + hundsPlace + "\n");
-
-		onesPlace = onesPlace * 100;	//swap with 3rd
-		tensPlace = tensPlace * 1000;	//swap with fourth
-		hundsPlace = hundsPlace * 1;	//I know, I'm just keeping my code consistent for my own eyes.
-		thousPlace = thousPlace * 10;	//swap with 2nd
-		
-//test
-		System.out.println("Puts them in place =  " + tensPlace + " + " + onesPlace + " + " + thousPlace + " + " + hundsPlace + "\n");
-
-		
-		//Then print the encrypted integer
-		//DecimalFormat decimalFormat = new DecimalFormat("0000");
-
-		int newDig = thousPlace + hundsPlace + tensPlace + onesPlace;
-		System.out.println("Your encrypted number is: " + newDig);
-		
-		// Prints the leading zero if the 4 digits are less than 1000
-		if(newDig < 1000) {
-			String myStringRepOfInt = String.format("%04d", newDig);
-			System.out.println("Using String.format, Your digits were encrypted: " + myStringRepOfInt);		
-		}
 		
 		
 //-------------------------------------------------------------------------------		  		  
@@ -101,13 +20,14 @@ public class Rosario_p1 {
 //-------------------------------------------------------------------------------
 		  
 		  System.out.println("\n\nIs there a four-digit code you would like to decrypt? (1 for YES/ 0 for NO): ");
-		  int answer = scnr.nextInt();
+		  answer = scnr.nextInt();
 		  
 		  while (answer > 1 || answer < 0) {
 			  System.out.println("\nPlease type 1 for YES or 0 for NO: ");
 			  answer = scnr.nextInt();
 		  }
 		  
+		  //Checks what you entered
 		  if (answer < 1 && answer > -1) {
 			  
 		  		System.out.println("\nThank you!! Goodbye!\n");  
@@ -117,7 +37,7 @@ public class Rosario_p1 {
 		  	else if(answer > 0 && answer < 2){	
 		   
 		  		System.out.println("\nEnter it now: ");
-		  		int deCrypt = scnr.nextInt();		  		
+		  		deCrypt = scnr.nextInt();		  		
 		  		
 				while(deCrypt < 1000) {
 					
@@ -131,8 +51,10 @@ public class Rosario_p1 {
 				System.out.println("---------------------------------------\n");
 			
 		  
-///BEGIN DECRYPTION HERE - for the morning.
+				//DECRYPTION STARTS HERE
 				
+				
+				// Strips each number from its placement
 				onesPlace = deCrypt % 10;
 				deCrypt = deCrypt / 10;
 				
@@ -151,6 +73,7 @@ public class Rosario_p1 {
 				System.out.println("Hundreds place = " + hundsPlace);
 				System.out.println("Thousands place = " + thousPlace);
 				
+				// Checks the range for suitable calculations and prints.
 				if(onesPlace > 6) {
 					
 					onesPlace = (onesPlace * 1) - 7;
@@ -187,7 +110,7 @@ public class Rosario_p1 {
 				}
 				System.out.println("\nDECRYPTED -> Hundreds place = " + hundsPlace);
 
-//PROBLEM TO FIX
+
 				if(thousPlace > 6) {
 					
 					thousPlace = (thousPlace * 1) - 7;
@@ -208,14 +131,18 @@ public class Rosario_p1 {
 				System.out.println("\nPuts them in place =  " + tensPlace + " + " + onesPlace + " + " + thousPlace + " + " + hundsPlace + "\n");
 				
 				newDig = thousPlace + hundsPlace + tensPlace + onesPlace;
+				System.out.println("\n---------------------------------------");
 				System.out.println("Your Decrypted number is: " + newDig);
+				System.out.println("\n---------------------------------------");
 				
 	scnr.close();
 	
 		  	}
-	}
 	
-}
+	
+
+
+//Decryption Notes:
 // adds 7			Remainder
 //					   ^
 //0 +7 -> 7 	%10 -> 7 ->	 [7 * 1] - 7
@@ -229,7 +156,7 @@ public class Rosario_p1 {
 //8 +7 -> 15	%10 -> 5 ->  [(5 * 1) + 10] - 7
 //9 +7 -> 16	%10 -> 6 ->  [(6 * 1) + 10] - 7
 
-//enCrptyNum = (num + 7) % 10
-//mod = r
-//r = num/10 * .1
 
+	}
+
+}

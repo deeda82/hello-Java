@@ -2546,3 +2546,23 @@ org.eclipse.ui.PartInitException: Factory org.eclipse.jdt.ui.ClassFileEditorInpu
 	at org.eclipse.equinox.launcher.Main.run(Main.java:1468)
 !SUBENTRY 1 org.eclipse.ui 4 0 2019-09-20 02:23:29.800
 !MESSAGE Factory org.eclipse.jdt.ui.ClassFileEditorInputFactory returned null from createElement for editor id=org.eclipse.jdt.ui.ClassFileEditorNoSource name=null
+
+!ENTRY org.eclipse.ui 4 4 2019-09-20 17:00:16.184
+!MESSAGE Unable to create part
+!SUBENTRY 1 org.eclipse.ui 4 0 2019-09-20 17:00:16.184
+!MESSAGE Factory org.eclipse.jdt.ui.ClassFileEditorInputFactory returned null from createElement for editor id=org.eclipse.jdt.ui.ClassFileEditorNoSource name=null
+
+!ENTRY org.eclipse.ui.ide 4 4 2019-09-20 17:00:27.123
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 2 1 2019-09-20 17:00:27.123
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2019-09-20 17:00:27.123
+!MESSAGE The project description file (.project) for 'rosario_p1' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2019-09-20 17:00:27.123
+!MESSAGE The project description file (.project) for 'rosario_p2' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2019-09-20 17:00:27.123
+!MESSAGE The project description file (.project) for 'rosario_p3' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
+
+!ENTRY org.eclipse.core.resources 2 10035 2019-09-20 17:00:28.883
+!MESSAGE The workspace will exit with unsaved changes in this session.
